@@ -4,8 +4,10 @@ class GestionnaireRecherche {
     }
 
     chercher(requete){
-        let chansons = this.services.reduce(function(liste, service) {
-            return liste.concat(service.chercher(requete));
-        }, []);
+
+        return Promise.all(this.services.map(services => services.chercher(requete)))
+        .then(function(listesResultats){
+            return [].concat(...listesResultats);
+        });
     }
 }

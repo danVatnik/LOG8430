@@ -16,12 +16,8 @@ class ServiceSoundCloud extends Service {
     }
 
     construireChanson(chansonJson) {
-        let infoChanson = chansonJson.title.split(" - ");
-        let artiste = infoChanson[0];
-        let titre = infoChanson[1];
-
         let duree  = chansonJson.duration / 1000;
 
-        return new ChansonSoundCloud(titre, artiste, duree);
+        return new ChansonSoundCloud(chansonJson.title, duree);
     }
 }
