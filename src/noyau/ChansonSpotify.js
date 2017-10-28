@@ -1,5 +1,5 @@
 class ChansonSpotify extends Chanson {
-    constructor() {
-        super();
+    constructor(titre, artiste, duree) {
+        super(titre, artiste, duree);
     }
 }
