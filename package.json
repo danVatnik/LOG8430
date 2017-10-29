@@ -10,7 +10,9 @@
     "babel": "^6.23.0",
     "babel-cli": "^6.26.0",
     "babel-preset-react": "^6.24.1",
-    "react-dom": "^16.0.0"
+    "q": "^1.5.1",
+    "react-dom": "^16.0.0",
+    "spotify-web-api-js": "^0.22.1"
   },
   "scripts": {
     "build": "babel src -d dists"

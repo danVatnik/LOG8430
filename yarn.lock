@@ -1054,6 +1054,10 @@ punycode@^1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-1.4.1.tgz#c0d5a63b2718800ad8e1eb0fa5269c84dd41845e"
 
+q@^1.5.1:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/q/-/q-1.5.1.tgz#7e32f75b41381291d04611f1bf14109ac00651d7"
+
 qs@~6.4.0:
   version "6.4.0"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.4.0.tgz#13e26d28ad6b0ffaa91312cd3bf708ed351e7233"
@@ -1212,6 +1216,10 @@ source-map-support@^0.4.15:
 source-map@^0.5.6:
   version "0.5.7"
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.5.7.tgz#8a039d2d1021d22d1ea14c80d8ea468ba2ef3fcc"
+
+spotify-web-api-js@^0.22.1:
+  version "0.22.1"
+  resolved "https://registry.yarnpkg.com/spotify-web-api-js/-/spotify-web-api-js-0.22.1.tgz#879a169cfb84eec538d72bf7f630d691cf1a2c5a"
 
 sshpk@^1.7.0:
   version "1.13.1"
