@@ -1,20 +1,46 @@
 {
-  "name": "log8430",
+  "name": "Muziko",
   "version": "1.0.0",
-  "description": "services",
+  "description": "Utiliser plusieurs services de diffusion de musique en continu dans une interface commune",
   "main": "index.js",
   "repository": "https://rami-eid@bitbucket.org/danVatnik/log8430.git",
-  "author": "rami-eid <rami.eid@outlook.com>",
+  "contributors": [
+    "Rami Eid",
+    "Antoine Proulx",
+    "Dan Vatnik"
+  ],
   "license": "MIT",
   "dependencies": {
-    "babel": "^6.23.0",
-    "babel-cli": "^6.26.0",
-    "babel-preset-react": "^6.24.1",
     "q": "^1.5.1",
+    "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "spotify-web-api-js": "^0.22.1"
   },
+  "devDependencies": {
+    "browser-sync": "^2.18.13",
+    "npm-run-all": "^4.1.1",
+    "rollup": "^0.50.0",
+    "rollup-plugin-buble": "^0.16.0",
+    "rollup-plugin-commonjs": "^8.2.6",
+    "rollup-plugin-node-globals": "^1.1.0",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-replace": "^2.0.0",
+    "rollup-plugin-uglify": "^2.0.1",
+    "rollup-watch": "^4.3.1",
+    "snazzy": "^7.0.0",
+    "standard": "^10.0.3"
+  },
   "scripts": {
-    "build": "babel src -d dists"
+    "build": "rollup -c config/prod.js",
+    "build:dev": "rollup -c config/dev.js -w",
+    "browse": "browser-sync start --s --index 'index.html' --files 'index.html, build/**/*.js' --no-notify",
+    "start": "npm-run-all --parallel build:dev browse",
+    "std": "standard --verbose | snazzy",
+    "test": "yarn run build:dev"
+  },
+  "standard": {
+    "ignore": [
+      "build"
+    ]
   }
 }
