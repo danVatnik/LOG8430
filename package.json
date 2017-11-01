@@ -37,7 +37,7 @@
   "scripts": {
     "build": "rollup -c config/prod.js",
     "build:dev": "rollup -c config/dev.js -w",
-    "browse": "browser-sync start --s --index 'index.html' --files 'index.html, build/**/*.js' --no-notify",
+    "browse": "browser-sync start --s --index 'index.html' --files 'index.html, styles.css, build/**/*.js' --no-notify",
     "start": "npm-run-all --parallel build:dev browse",
     "std": "standard --verbose | snazzy",
     "test": "yarn run build:dev"

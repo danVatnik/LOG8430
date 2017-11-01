@@ -1,4 +1,7 @@
-class ServiceDeezer extends Service {
+import Service from './Service.js';
+import ChansonDeezer from './../noyau/ChansonDeezer.js';
+
+export default class ServiceDeezer extends Service {
     constructor() {
         super();
         DZ.init({
@@ -14,7 +17,7 @@ class ServiceDeezer extends Service {
                 resolve(chansons.data.map(self.construireChanson));
             });
         });
-        
+
     }
 
     construireChanson(chansonJson) {

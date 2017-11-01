@@ -1,4 +1,7 @@
-class ServiceSoundCloud extends Service {
+import Service from './Service.js';
+import ChansonSoundCloud from './../noyau/ChansonSoundCloud.js';
+
+export default class ServiceSoundCloud extends Service {
     constructor() {
         super();
         SC.initialize({

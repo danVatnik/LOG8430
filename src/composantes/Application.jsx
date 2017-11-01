@@ -7,7 +7,7 @@ export default class Application extends React.Component {
                 <div className="container-fluid">
                     <div className="row">
                         <div className="col panneau" style={{"backgroundColor": "#e3f2fd"}}>Bibliothèque</div>
-                        <Recherche />
+                        <Recherche gestionnaireRecherche={this.props.app.obtenirGestionnaireRecherche()} />
                     </div>
                 </div>
 
