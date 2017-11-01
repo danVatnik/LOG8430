@@ -1,5 +1,5 @@
 {
-  "name": "Muziko",
+  "name": "muziko",
   "version": "1.0.0",
   "description": "Utiliser plusieurs services de diffusion de musique en continu dans une interface commune",
   "main": "index.js",
@@ -17,6 +17,7 @@
     "popper.js": "^1.12.6",
     "q": "^1.5.1",
     "react": "^16.0.0",
+    "react-beautiful-dnd": "^2.5.0",
     "react-dom": "^16.0.0",
     "spotify-web-api-js": "^0.22.1"
   },
