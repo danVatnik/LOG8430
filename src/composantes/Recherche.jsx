@@ -20,6 +20,7 @@ export default class Recherche extends React.Component {
     }
 
     render() {
+        //console.log(this.state.resultats);
         return (
             <div className="col panneau">
                 <form onSubmit={this.gererSoumissionRequete.bind(this)}>
@@ -31,7 +32,7 @@ export default class Recherche extends React.Component {
                     </div>
                 </form>
 
-                <ResultatsRecherche chansons={this.state.resultats} />
+                <ResultatsRecherche chansons={this.state.resultats} jouer={this.props.jouer}/>
             </div>
         );
     }

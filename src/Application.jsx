@@ -5,6 +5,7 @@ import ComposanteApplication from './composantes/Application.jsx';
 
 import ServiceDeezer from './services/ServiceDeezer.js';
 import ServiceSoundCloud from './services/ServiceSoundCloud.js';
+import ServiceSpotify from './services/ServiceSpotify.js';
 
 import GestionnaireRecherche from './noyau/GestionnaireRecherche.js';
 
@@ -12,7 +13,8 @@ export default class Application {
     constructor() {
         this.services = [
             new ServiceDeezer(),
-            new ServiceSoundCloud()
+            //new ServiceSoundCloud()
+            new ServiceSpotify()
         ];
 
         this.gestionnaireRecherche = new GestionnaireRecherche(this.services);

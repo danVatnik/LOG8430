@@ -1,11 +1,11 @@
 class GestionnaireLecture {
     constructor() {
-        this.lecteur = new Lecteur();
+        //this.lecteur = new Lecteur();
     }
 
     jouerChansons(chansons) {
         chansons.forEach(function(chanson) {
-            this.lecteur.joueur(chanson);
+            chanson.obtenirMusique();
         }, this);
     }
 }

@@ -14,15 +14,21 @@ export default class ServiceDeezer extends Service {
         let self = this;
         return new Promise(function(resolve, reject){
             DZ.api('search', 'GET', {q : requete}, function(chansons){
-                resolve(chansons.data.map(self.construireChanson));
+                resolve(Promise.all(chansons.data.map(self.construireChanson)));
             });
         });
 
     }
 
     construireChanson(chansonJson) {
+        //console.log(chansonJson);
         let titre = chansonJson.artist.name + " - " + chansonJson.title;
-
-        return new ChansonDeezer(titre, chansonJson.duration);
+        
+        return $.ajax({
+            type: "get",
+            url: "https://cors-anywhere.herokuapp.com/https://api.deezer.com/oembed?url=http://www.deezer.com/track/" + chansonJson.id,
+        }).then(function(res){
+            return new ChansonDeezer(titre, chansonJson.duration, res.html);
+        }); 
     }
 }
