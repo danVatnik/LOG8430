@@ -12,34 +12,21 @@ export default class ServiceSpotify extends Service {
                 data:{
                     "grant_type": "client_credentials", 
                 },
-                //dataType: 'jsonp',
                 cors: true ,
                 contentType:'application/x-www-form-urlencoded',
-                //secure: true,
                 headers: {
-                    //'Access-Control-Allow-Origin': '*',
                     "Authorization":  "Basic " + btoa("d25dbaca45c7415f94f5b0994c05b8ff" + ":" + "c099d5e3e56d4cd9a1547d7b6284125c"),
                 },
-                // beforeSend: function (xhr) {
-                //     xhr.setRequestHeader ("Authorization: ", "Basic " + btoa("d25dbaca45c7415f94f5b0994c05b8ff" + ":" + "c099d5e3e56d4cd9a1547d7b6284125c"));
-                //     //xhr.setRequestHeader ("Access-Control-Allow-Origin: *");
-                // },
                 success: function(result){
                     self.token = result.access_token;
                 }
             }
         );
-        
-        //this.spotifyApi = new SpotifyWebApi();
-        //this.spotifyApi.
-        //this.spotifyApi.setAccessToken('c099d5e3e56d4cd9a1547d7b6284125c');
-        //this.spotifyApi.setPromiseImplementation(Q);
     }
 
     chercher(requete) {
         let self = this;
         if(this.token != null){
-            console.log(this.token)
             return $.ajax(
                 {
                     method: "GET",
@@ -48,18 +35,11 @@ export default class ServiceSpotify extends Service {
                         "q": requete,
                         "type": "track" 
                     },
-                    //dataType: 'jsonp',
                     cors: true ,
                     contentType:'application/json',
-                    //secure: true,
                     headers: {
-                        //'Access-Control-Allow-Origin': '*',
                         "Authorization": "Bearer " + this.token
                     },
-                    // beforeSend: function (xhr) {
-                    //     xhr.setRequestHeader ("Authorization: ", "Basic " + btoa("d25dbaca45c7415f94f5b0994c05b8ff" + ":" + "c099d5e3e56d4cd9a1547d7b6284125c"));
-                    //     //xhr.setRequestHeader ("Access-Control-Allow-Origin: *");
-                    // },
                     success: function(result){
                         console.log(result);
                     }

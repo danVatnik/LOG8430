@@ -21,7 +21,6 @@ export default class ServiceDeezer extends Service {
     }
 
     construireChanson(chansonJson) {
-        //console.log(chansonJson);
         let titre = chansonJson.artist.name + " - " + chansonJson.title;
         
         return $.ajax({
