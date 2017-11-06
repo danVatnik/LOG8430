@@ -4,7 +4,7 @@ import ReactDom from 'react-dom';
 import ComposanteApplication from './composantes/Application.jsx';
 
 import ServiceDeezer from './services/ServiceDeezer.js';
-import ServiceSoundCloud from './services/ServiceSoundCloud.js';
+import ServiceJamendo from './services/ServiceJamendo.js';
 import ServiceSpotify from './services/ServiceSpotify.js';
 
 import GestionnaireRecherche from './noyau/GestionnaireRecherche.js';
@@ -13,7 +13,7 @@ export default class Application {
     constructor() {
         this.services = [
             new ServiceDeezer(),
-            //new ServiceSoundCloud()
+            new ServiceJamendo(),
             new ServiceSpotify()
         ];
 
