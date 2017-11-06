@@ -1,0 +1,7 @@
+exclude:
+- /config/.*
+- /deezer_example/.*
+- /spotify-web-api.js
+component_depth: 1
+languages:
+- javascript
