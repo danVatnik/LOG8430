@@ -1,9 +1,4 @@
-function formaterDuree(duree) {
-    let secondes = Math.round(duree % 60);
-    let minutes = Math.floor(duree / 60);
-
-    return `${minutes}:${secondes.toString().padStart(2, "0")}`;
-}
+import { formaterDuree } from './../noyau/utils.js';
 
 export default class ResultatsRecherche extends React.Component {
 

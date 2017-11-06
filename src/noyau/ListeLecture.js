@@ -1,4 +1,4 @@
-class ListeLecture {
+export default class ListeLecture {
     constructor(nom) {
         this.nom = nom;
         this.chansons = [];
@@ -8,9 +8,9 @@ class ListeLecture {
         this.chansons.push(chanson);
     }
 
-    supprimerChanson(chanson){
+    supprimerChanson(chanson) {
         const index = this.chansons.indexOf(chanson);
-        
+
         if (index !== -1) {
             this.chansons.splice(index, 1);
         }
