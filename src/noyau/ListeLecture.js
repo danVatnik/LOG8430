@@ -15,6 +15,4 @@ export default class ListeLecture {
             this.chansons.splice(index, 1);
         }
     }
-
-    // TODO: modifier order des chansons
 }

@@ -5,7 +5,9 @@ export default class Lecteur extends React.Component {
         let html = (<div></div>);
         if (chanson != null) {
             html = (
-                <div dangerouslySetInnerHTML={{__html:chanson.iframeHtml}}></div>
+                <div className="row">
+                    <div className="lecteur column" dangerouslySetInnerHTML={{__html:chanson.iframeHtml}}></div>
+                </div>
             );
         }
         return html;

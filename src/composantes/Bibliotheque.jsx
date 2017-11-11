@@ -4,8 +4,7 @@ export default class Bibliotheque extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            nomNouvelleListe: "",
-            listesLecture: props.bibliotheque.listesLecture
+            nomNouvelleListe: ""
         };
     }
 
@@ -13,28 +12,29 @@ export default class Bibliotheque extends React.Component {
         this.setState({ nomNouvelleListe: evenement.target.value });
     }
 
-    creerListeLecture() {
-        this.props.bibliotheque.creerListe(this.state.nomNouvelleListe);
+    creerListeLecture(evenement) {
+        this.props.creerListeLecture(this.state.nomNouvelleListe);
         this.setState({
-            nomNouvelleListe: "",
-            listesLecture: this.props.bibliotheque.listesLecture
+            nomNouvelleListe: ""
         });
-    }
-
-    supprimerListeLecture(listeLecture) {
-        this.props.bibliotheque.supprimerListe(listeLecture);
-        this.setState({ listesLecture: this.props.bibliotheque.listesLecture });
+        evenement.preventDefault();
     }
 
     render() {
-        let listesLecture = this.state.listesLecture;
+        let listesLecture = this.props.bibliotheque.listesLecture;
 
         let listesLectureHtml = (
             <p className="liste-vide">Votre bibliothèque est vide! Commencez par créer une nouvelle liste de lecture.</p>
         );
         if (listesLecture.length > 0) {
             listesLectureHtml = listesLecture.map((listeLecture, index) => (
-                <ComposantListeLecture key={index} listeLecture={listeLecture} supprimer={this.supprimerListeLecture.bind(this, listeLecture)} />
+                <ComposantListeLecture
+                    key={index} index={index}
+                    listeLecture={listeLecture}
+                    changerOrdreChansons={this.props.changerOrdreChansons}
+                    supprimer={() => this.props.supprimerListeLecture(listeLecture)}
+                    supprimerChanson={this.props.supprimerChanson}
+                    jouer={this.props.jouer} />
             ));
         }
 

@@ -5,6 +5,7 @@ export default class Recherche extends React.Component {
         super(props);
         this.state = {
             resultats: [],
+            enChargement: false,
             requete: ""
         };
     }
@@ -14,8 +15,9 @@ export default class Recherche extends React.Component {
     }
 
     gererSoumissionRequete(evenement) {
+        this.setState({ enChargement: true });
         this.props.gestionnaireRecherche.chercher(this.state.requete)
-            .then(chansons => this.setState({ resultats: chansons }));
+            .then(chansons => this.setState({ enChargement: false, resultats: chansons }));
         evenement.preventDefault();
     }
 
@@ -30,7 +32,12 @@ export default class Recherche extends React.Component {
                         </span>
                     </div>
                 </form>
-                <ResultatsRecherche chansons={this.state.resultats} jouer={this.props.jouer}/>
+                <ResultatsRecherche
+                    enChargement={this.state.enChargement}
+                    bibliotheque={this.props.bibliotheque}
+                    chansons={this.state.resultats}
+                    jouer={this.props.jouer}
+                    ajouterChanson={this.props.ajouterChanson} />
             </div>
         );
     }

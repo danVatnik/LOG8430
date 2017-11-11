@@ -20,18 +20,7 @@ export default class Application {
         ];
 
         this.gestionnaireRecherche = new GestionnaireRecherche(this.services);
-
         this.bibliotheque = new Bibliotheque();
-
-        // Données temporaires
-        let liste1 = this.bibliotheque.creerListe("Halloween");
-        liste1.ajouterChanson(new Chanson("Chanson effrayante", 65));
-        liste1.ajouterChanson(new Chanson("Chanson épeurante", 78));
-        let liste2 = this.bibliotheque.creerListe("Noël");
-        liste2.ajouterChanson(new Chanson("Noël 1", 187));
-        liste2.ajouterChanson(new Chanson("Noël 2", 125));
-        liste2.ajouterChanson(new Chanson("Noël 3", 210));
-        let liste3 = this.bibliotheque.creerListe("Vide");
     }
 
     obtenirBibliotheque() {

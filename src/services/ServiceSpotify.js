@@ -10,7 +10,7 @@ export default class ServiceSpotify extends Service {
                 method: "POST",
                 url: "https://cors-anywhere.herokuapp.com/https://accounts.spotify.com/api/token",
                 data:{
-                    "grant_type": "client_credentials", 
+                    "grant_type": "client_credentials",
                 },
                 cors: true ,
                 contentType:'application/x-www-form-urlencoded',
@@ -33,7 +33,7 @@ export default class ServiceSpotify extends Service {
                     url: "https://cors-anywhere.herokuapp.com/https://api.spotify.com/v1/search",
                     data:{
                         "q": requete,
-                        "type": "track" 
+                        "type": "track"
                     },
                     cors: true ,
                     contentType:'application/json',
@@ -41,7 +41,6 @@ export default class ServiceSpotify extends Service {
                         "Authorization": "Bearer " + this.token
                     },
                     success: function(result){
-                        console.log(result);
                     }
                 }
             ).then(function(chansons) {
@@ -53,8 +52,8 @@ export default class ServiceSpotify extends Service {
 
     construireChanson(chansonJson) {
         let duree = chansonJson.duration_ms / 1000;
-        let titre = chansonJson.name + " - " + chansonJson.artists[0].name 
-        let iframeHtml = "<iframe src='https://open.spotify.com/embed?uri=spotify:track:"+ chansonJson.id +"' width='300' height='200' frameborder='0' allowtransparency='true'></iframe>"
+        let titre = chansonJson.name + " - " + chansonJson.artists[0].name
+        let iframeHtml = "<iframe src='https://open.spotify.com/embed?uri=spotify:track:"+ chansonJson.id +"' width='300' height='80' frameborder='0' allowtransparency='true'></iframe>"
         return new ChansonSpotify(titre, duree, iframeHtml);
     }
 }

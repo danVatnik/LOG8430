@@ -12,6 +12,10 @@ export default class Bibliotheque {
         return liste;
     }
 
+    changerListe(index, listeChansons) {
+        this.listesLecture[index].chansons = listeChansons;
+    }
+
     supprimerListe(liste) {
         const index = this.listesLecture.indexOf(liste);
 
@@ -19,6 +23,4 @@ export default class Bibliotheque {
             this.listesLecture.splice(index, 1);
         }
     }
-
-    // TODO: MOdifier order des listes
 }
